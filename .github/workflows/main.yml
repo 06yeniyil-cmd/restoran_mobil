@@ -8,7 +8,10 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-      - run: flutter pub get
+      # İsmi otomatik düzeltir ve bağımlılıkları çeker
+      - run: |
+          flutter create --project-name restoran_mobil .
+          flutter pub get
       - run: flutter build apk --release
       - uses: actions/upload-artifact@v4
         with:
